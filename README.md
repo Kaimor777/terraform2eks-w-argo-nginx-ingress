@@ -2,6 +2,7 @@
 ## Deployment
 
 Clone the repo
+
 ```bash
   git clone https://github.com/Amitk3293/terraform2eks-w-argo-nginx-ingress.git
 ```
@@ -20,7 +21,7 @@ variable "cluster_name" {
 }
 ```
 
-**Edit backend.tf w your remote backend to keep your state file "safe" or delete to use a local backend
+#### *Edit backend.tf w your remote backend to keep your state file sensitive data being "safe" or delete to use a local backend
 
 
 
@@ -35,7 +36,7 @@ When TF process ends successfully configure kubeconfig to be able to use kubectl
 aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
 ```
 
-#For deploy nginx-ingress using Helm_provider go to /helm-tf/modules/nginx-ingress
+### For deploy nginx-ingress using Helm_provider go to /helm-tf/modules/nginx-ingress
 
 **Edit backend.tf w your remote backend to keep your state file "safe" or delete to use a local backend
 
@@ -55,8 +56,8 @@ ingress-nginx-controller             LoadBalancer   172.20.219.188   a1ceeff3173
 ingress-nginx-controller-admission   ClusterIP      172.20.44.234    <none>                                                                      443/TCP                      54s
 ```
 
-
-**Edit argo-values.yaml hosts to argo-cd.<your-domain>
+### For deploy argo-cf using Helm_provider go to /helm-tf/modules/argo-cd
+Edit argo-values.yaml hosts to argo-cd.<your-domain>
 ```bash
 server:
   extraArgs:
@@ -72,7 +73,6 @@ server:
 **Edit DNS Cname record with a record name- argo-cd.<your-domain> and a value of the ingress external IP we check before.
 
 
-#For deploy argo-cf using Helm_provider go to /helm-tf/modules/argo-cd
 Initiallize Terraform, plan and apply
 ```bash
 terraform init
@@ -94,4 +94,9 @@ X-Frame-Options: sameorigin
 X-Xss-Protection: 1
 ```
 
-
+### To sync your application w argo-cd run 
+```bash
+k get deploy -o yaml -n ingress
+k get deploy -o yaml -n argo-cd
+```
+and add the deployment.yaml outputs into deployments-yaml folder in the repo, then sync argoCD w the git repo and deployments-yamls path.
