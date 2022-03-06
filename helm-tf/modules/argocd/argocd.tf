@@ -13,6 +13,7 @@ resource "helm_release" "argo-cd" {
   dependency_update = true
   values            = [file("argo-values.yml")]
 
+
   provisioner "local-exec" {
     command = <<EOF
       echo "Waiting for the argo-cd pods" \
@@ -22,11 +23,11 @@ resource "helm_release" "argo-cd" {
       echo "argo-cd successfully started"
     EOF
 
-
+  }
   provisioner "local-exec" {
     command = <<EOF
       echo "Here's your argo password " \
-      kubectl -n argo-cd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+      $(kubectl -n argo-cd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
     EOF
   }
 }
