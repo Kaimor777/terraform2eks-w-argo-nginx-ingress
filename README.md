@@ -1,4 +1,24 @@
 
+# Create an EKS cluster w Nginx-ingress & Argo-cd using Terraform
+
+In this repo I created a simple EKS cluster w 3 nodes using Terraform and used Helm_provider to create nginx-ingress and argo-cd.  
+
+## Authors
+
+- [@Amitk3293 ](https://github.com/Amitk3293)
+
+
+## Prerequisites
+
+ - Terraform v0.14+
+ - A configured AWS CLI
+ - AWS account w the relevant IAM permissions
+ - IAM user w the relevant permissions
+ - kubectl
+ - wget (required for the eks module)
+ - S3 buckets for TF-remote-backend (optional)
+
+
 ## Deployment
 
 Clone the repo
