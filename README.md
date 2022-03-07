@@ -11,7 +11,7 @@ In this repo I created a simple EKS cluster w 3 nodes using Terraform and used H
 ## Prerequisites
 
  - Terraform v0.14+
- - A configured AWS CLI
+ - A configured AWS CLI w the relevant IAM permissions ("TF-API-admin" in that case)
  - AWS account w the relevant IAM permissions
  - IAM user w the relevant permissions
  - kubectl
