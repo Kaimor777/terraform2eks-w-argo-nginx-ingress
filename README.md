@@ -56,6 +56,9 @@ When TF process ends successfully configure kubeconfig to be able to use kubectl
 aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
 ```
 
+## using Terraform-helm provider
+
+
 ### For deploy nginx-ingress using Helm_provider go to /helm-tf/modules/nginx-ingress
 
 **Edit backend.tf w your remote backend to keep your state file "safe" or delete to use a local backend
