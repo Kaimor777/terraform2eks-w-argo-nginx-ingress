@@ -116,7 +116,9 @@ X-Xss-Protection: 1
 
 ### To sync your application w argo-cd run 
 ```bash
-k get deploy -o yaml -n ingress
-k get deploy -o yaml -n argo-cd
+helm get manifest ingress-nginx -n ingress
+helm get manifest argo-cd -n argo-cd
 ```
-and add the deployment.yaml outputs into deployments-yaml folder in the repo, then sync argoCD w the git repo and deployments-yamls path.
+and add the helm manigest output to a file named ingress.yaml or argo-cd.yaml outputs into application-charts/templates/<app-folder>/ folder in the repo, 
+then logged in to ArgoCD and sync the git repo and application-charts/templates/ path, with check the recurse subfolder V checkbox.
+
