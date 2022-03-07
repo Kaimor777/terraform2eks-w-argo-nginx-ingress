@@ -119,6 +119,6 @@ X-Xss-Protection: 1
 helm get manifest ingress-nginx -n ingress
 helm get manifest argo-cd -n argo-cd
 ```
-and add the helm manigest output to a file named ingress.yaml or argo-cd.yaml outputs into application-charts/templates/<<app-folder>>/ folder in the repo. 
+and add the helm manigest output to a file named ingress.yaml or argo-cd.yaml outputs into application-charts/templates/app-folder/ folder in the repo. 
 Then log in to ArgoCD and sync the git repo and application-charts/templates/<app-name> path.
 
