@@ -20,7 +20,7 @@ In this repo I created a simple EKS cluster w 3 nodes using Terraform and used H
 
 
 ## Deployment
-
+   
 Clone the repo
 
 ```bash
