@@ -5,7 +5,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  cluster_name = "amitk-eks-${var.cluster_name}"
+  cluster_name = "stasl-${var.cluster_name}"
 }
 
 resource "random_string" "suffix" {

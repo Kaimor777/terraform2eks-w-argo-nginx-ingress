@@ -8,7 +8,7 @@ module "eks" {
   tags = merge(
     var.additional_tags,
     {
-      created_by = "amitk-w-TF"
+      created_by = "stasl-TF"
     },
   )
 
